@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './productos.component.html',
 })
 export class ProductosComponent implements OnInit {
-
+  productos:any = [];
   constructor() { }
 
   ngOnInit(): void {
