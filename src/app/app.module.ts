@@ -9,6 +9,8 @@ import { FooterComponent } from './home/footer/footer/footer.component';
 import { ProductosComponent } from './productos/productos/productos.component';
 import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
+import { TallaService } from './services/talla.service';
+import { ColorService } from './services/color.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { InicioComponent } from './home/inicio/inicio/inicio.component';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [TallaService, ColorService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
