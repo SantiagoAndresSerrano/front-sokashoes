@@ -7,11 +7,15 @@ import * as global from 'global'
 })
 export class CompraService {
 
-  uri = global.url;
+  uri = global.url+"/compra";
 
   constructor(private http:HttpClient){}
 
   public consultarCompras():Observable<any>{
-    return this.http.get<any>(`${this.uri}/compra`);
+    return this.http.get<any>(`${this.uri}`);
+  }
+
+  public guardarCompra(compra:any):Observable<any>{
+    return this.http.post<any>(this.uri,compra);
   }
 }

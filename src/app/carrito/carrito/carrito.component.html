@@ -79,7 +79,43 @@
 	                					</tbody>
 	                				</table><!-- End .table table-summary -->
 
-	                				<a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block btn-round">PAGAR</a>
+			<!-- Payu pruebas -->
+									<form #form method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
+										<input name="merchantId"    type="hidden"  value={{idMercado}}   >
+										<input name="accountId"     type="hidden"  value={{idCuenta}} >
+										<input name="description"   type="hidden"  value={{descripcion}}  >
+										<input name="referenceCode" type="hidden"  value={{referenciaUnic}} > 
+										<!-- CODIGO UNICO -->
+										<input name="amount"        type="hidden"  value={{total}}   >
+										<input name="tax"           type="hidden"  value={{iva}}  >
+										<input name="taxReturnBase" type="hidden"  value={{iva*total}} >
+										<input name="currency"      type="hidden"  value={{moneda}} >
+										<input name="signature"     type="hidden"  value={{firmaElectronicaMD5}}  >
+										<input name="test"          type="hidden"  value="0" >
+										<input name="buyerEmail"    type="hidden"  value={{email}} >
+										<input name="responseUrl"   type="hidden"  value="">
+										<input name="confirmationUrl" type="hidden"  value="" >
+										<input type="submit" target="_blank" (click)="cargarDatos();form.submit()" class="btn btn-outline-primary-2 btn-order btn-block btn-round" value="Pagar PayU">
+									  </form>
+
+
+									  <form #formPrueb method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu">
+										<input name="merchantId"    type="hidden"  value="508029"   >
+										<input name="accountId"     type="hidden"  value={{idCuentaTest}} >
+										<input name="description"   type="hidden"  value={{descripcion}}  >
+										<input name="referenceCode" type="hidden"  value={{referenciaUnic}} >
+										<input name="amount"        type="hidden"  value={{total}}  >
+										<input name="tax"           type="hidden"  value="0"  >
+										<input name="taxReturnBase" type="hidden"  value="0" >
+										<input name="currency"      type="hidden"  value={{moneda}} >
+										<input name="signature"     type="hidden"  value={{firmaElectronicaMD5Test}}   >
+										<input name="test"          type="hidden"  value="1" >
+										<input name="buyerEmail"    type="hidden"  value="test@test.com" >
+										<input name="responseUrl"    type="hidden"  value="http://localhost:4200/payu">
+										<input name="confirmationUrl" type="hidden"  value={{url}} >
+										<input type="submit" target="_blank" (click)="cargarDatos();form.submit()" class="btn btn-outline-primary-2 btn-order btn-block btn-round" value="Pagar PayU PRUEBAS">
+									  </form>
+									<!--  -->
 	                			</div><!-- End .summary -->
 
 		            			<a href="category.html" class="btn btn-outline-dark-2 btn-block btn-round mb-3"><span>Continua comprando</span><i class="icon-refresh"></i></a>

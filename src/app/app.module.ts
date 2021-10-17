@@ -18,7 +18,7 @@ import { InicioComponent } from './home/inicio/inicio/inicio.component';
     FooterComponent,
     ProductosComponent,
     CarritoComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,

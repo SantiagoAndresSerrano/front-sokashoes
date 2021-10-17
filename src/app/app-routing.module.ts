@@ -12,7 +12,6 @@ const routes: Routes = [
   {path: 'inicio',component: InicioComponent},
   {path: '',component: InicioComponent},
 
-
 ];
 
 @NgModule({
