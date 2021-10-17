@@ -19,7 +19,7 @@
 
             <div class="header-right">
                 <div class="account">
-                    <a href="dashboard.html" title="My account">
+                    <a routerLink="/miCuenta" title="My account">
                         <div class="icon">
                             <i class="icon-user"></i>
                         </div>
@@ -38,69 +38,48 @@
                 </div>End .compare-dropdown -->
 
                 <div class="dropdown cart-dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a routerLink="/carrito" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <div class="icon">
                             <i class="icon-shopping-cart"></i>
-                            <span class="cart-count">0</span>
+                            <span *ngIf="cantidadTotal>0" class="cart-count">{{cantidadTotal}}</span>
                         </div>
                         <p>Carrito</p>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-cart-products">
+                    <div *ngIf="cantidadTotal>0" class="dropdown-menu dropdown-menu-right">
+                        <div  class="dropdown-cart-products" *ngFor="let carrito of carrito">
                             <div class="product">
                                 <div class="product-cart-details">
                                     <h4 class="product-title">
-                                        <a href="product.html">Beige knitted elastic runner shoes</a>
+                                        <a href="product.html">{{carrito.producto.modelo}}</a>
                                     </h4>
 
                                     <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $84.00
+                                        <span class="cart-product-qty">{{carrito.cantidad}}</span>
+                                        x {{carrito.producto.precio}}
                                     </span>
                                 </div><!-- End .product-cart-details -->
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="assets/images/products/cart/product-1.jpg" alt="product">
+                                        <img src="{{carrito.producto.urlImg}}" alt="product">
                                     </a>
                                 </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                            </div><!-- End .product -->
-
-                            <div class="product">
-                                <div class="product-cart-details">
-                                    <h4 class="product-title">
-                                        <a href="product.html">Blue utility pinafore denim dress</a>
-                                    </h4>
-
-                                    <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $76.00
-                                    </span>
-                                </div><!-- End .product-cart-details -->
-
-                                <figure class="product-image-container">
-                                    <a href="product.html" class="product-image">
-                                        <img src="assets/images/products/cart/product-2.jpg" alt="product">
-                                    </a>
-                                </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                             </div><!-- End .product -->
                         </div><!-- End .cart-product -->
 
                         <div class="dropdown-cart-total">
                             <span>Total</span>
 
-                            <span class="cart-total-price">$160.00</span>
+                            <span class="cart-total-price">{{total}}</span>
                         </div><!-- End .dropdown-cart-total -->
 
                         <div class="dropdown-cart-action">
-                            <a href="cart.html" class="btn btn-primary">View Cart</a>
-                            <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                            <a routerLink="/carrito" class="btn btn-primary">Ver carrito</a>
                         </div><!-- End .dropdown-cart-total -->
                     </div><!-- End .dropdown-menu -->
                 </div><!-- End .cart-dropdown -->
+
             </div><!-- End .header-right -->
         </div><!-- End .container -->
     </div><!-- End .header-middle -->
@@ -111,7 +90,7 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li>
-                            <a href="product.html" class="sf-with-ul">General</a>
+                            <a routerLink="/inicio" class="sf-with-ul">General</a>
 
                             <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
@@ -146,7 +125,7 @@
                             </div><!-- End .megamenu megamenu-sm -->
                         </li>
                         <li>
-                            <a href="#" class="sf-with-ul">Pages</a>
+                            <a routerLink="/productos" class="sf-with-ul">Comprar</a>
 
                             <ul>
                                 <li>
@@ -212,32 +191,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
-                            <ul>
-                                <li><a href="elements-products.html">Products</a></li>
-                                <li><a href="elements-typography.html">Typography</a></li>
-                                <li><a href="elements-titles.html">Titles</a></li>
-                                <li><a href="elements-banners.html">Banners</a></li>
-                                <li><a href="elements-product-category.html">Product Category</a></li>
-                                <li><a href="elements-video-banners.html">Video Banners</a></li>
-                                <li><a href="elements-buttons.html">Buttons</a></li>
-                                <li><a href="elements-accordions.html">Accordions</a></li>
-                                <li><a href="elements-tabs.html">Tabs</a></li>
-                                <li><a href="elements-testimonials.html">Testimonials</a></li>
-                                <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                                <li><a href="elements-portfolio.html">Portfolio</a></li>
-                                <li><a href="elements-cta.html">Call to Action</a></li>
-                                <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                            </ul>
-                        </li>
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
             </div><!-- End .header-center -->
 
             <div class="header-right">
-                <i class="la la-lightbulb-o"></i><p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
+                <i class="la la-lightbulb-o"></i><p>Compra<span class="highlight">&nbsp; con nosotros</span></p>
             </div>
         </div><!-- End .container -->
     </div><!-- End .header-bottom -->

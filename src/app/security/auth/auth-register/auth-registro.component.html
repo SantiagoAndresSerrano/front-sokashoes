@@ -6,14 +6,14 @@
             <div class="form-tab">
                 <ul class="nav nav-pills nav-fill" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="signin-tab-2" data-toggle="tab" routerLink="/login" role="tab" aria-controls="signin-2" aria-selected="true">Iniciar Sesión</a>
+                        <a class="nav-link" id="signin-tab-2" data-toggle="tab" routerLink="/login" role="tab" aria-controls="signin-2" aria-selected="false">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="register-tab-2" data-toggle="tab" routerLink="/registro" role="tab" aria-controls="register-2" aria-selected="false">Registrarse</a>
+                        <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="" role="tab" aria-controls="register-2" aria-selected="true">Registrarse</a>
                     </li>
                 </ul>
-                <div class="tab-content">                    
-                        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                <div class="tab-content">
+                        <form #f="ngForm" (ngSubmit)="onRegister()" novalidate>
                             <div class="form-group">
                                 <label for="nombreUsuario">Nombre de Usuario</label>
                                 <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
@@ -25,15 +25,21 @@
                                 [(ngModel)]="password" required>
                             </div>
                             <div class="form-group">
+                              <label for="email">Correo Electrónico</label>
+                              <input type="text" name="email" id="email" class="form-control"
+                              [(ngModel)]="email" required>
+                          </div>
+                            <div class="form-group">
                                 <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                                    <i class="fas fa-sign-in-alt"></i> Crear Cuenta</button>
                             </div>
                         </form>
                 </div><!-- End .tab-content -->
             </div><!-- End .form-tab -->
         </div><!-- End .form-box -->
     </div><!-- End .container -->
-</div>
+</div>End .login-page section-bg
+
 
 
 

@@ -4,6 +4,8 @@ import { CompraService } from 'src/app/services/compra.service';
 import * as crypto from "crypto-js";
 
 import * as global from 'global'
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
@@ -12,7 +14,6 @@ export class CarritoComponent implements OnInit {
 
   carrito:any = [];
   total!:number;
-  color="red";
   uri = global.url_front;
   descripcion= "";
 
@@ -44,20 +45,34 @@ export class CarritoComponent implements OnInit {
   firmaElectronicaMD5!:string;
   // test =================================================================
 
+  username = "";
+  usuario!:any;
+
   constructor(
+    private usuarioService:UsuarioService,
+    private compraService: CompraService,
     private carritoService: CarritoService,
-    private compraService: CompraService
+    private token:TokenService
+
     ) { }
 
   ngOnInit(): void {
-    
-    this.carritoService.consultarCarrito().subscribe(carritos=>{
+    this.username= this.token.getUserName();
+
+    this.usuarioService.usuarioPorUsername(this.username).subscribe(usuarioEncontrado=>{
+     this.usuario = usuarioEncontrado;
+
+     this.usuarioService.carritoDeUsuario(this.usuario.id_Usuario).subscribe(carritos=>{
       this.carrito = carritos;
       this.calcularTotal();
       this.actializarFirma();
     })
-  }
 
+    })
+
+    
+  }
+  
   cargarDatos(){
     this.carritoService.cargarCarritos(this.carrito).subscribe(data=>{
     })

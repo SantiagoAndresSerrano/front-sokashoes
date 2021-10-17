@@ -12,13 +12,14 @@ import { InicioComponent } from './home/inicio/inicio/inicio.component';
 import { TallaService } from './services/talla.service';
 import { ColorService } from './services/color.service';
 import { AuthLoginComponent } from './security/auth/auth-login/auth-login.component';
-import { AuthRegisterComponent } from './security/auth/auth-register/auth-register.component';
+import { AuthRegistroComponent } from './security/auth/auth-register/auth-registro.component';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { TransaccionService } from './services/transaccion.service';
 import { PaqInterceptorService } from './security/interceptors/paq-interceptor.service';
 
 import { interceptorProvider } from './security/interceptors/paq-interceptor.service';
+import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { interceptorProvider } from './security/interceptors/paq-interceptor.ser
     CarritoComponent,
     InicioComponent,
     AuthLoginComponent,
-    AuthRegisterComponent,
+    AuthRegistroComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

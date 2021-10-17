@@ -19,15 +19,12 @@ export class UsuarioService {
     return this.http.get<any>(`${this.url}/${username}/username`);
   }
 
-  public paquetesPorUsuario(idUsuario:number):Observable<any>{
-    return this.http.get<any>(`${this.url}/${idUsuario}/paquetesComprados`)
+  public comprasPorUsuario(idUsuario:number):Observable<any>{
+    return this.http.get<any>(`${this.url}/${idUsuario}/compras`);
   }
 
-  public reservasPorUsuario(idUsuario:number):Observable<any>{
-    return this.http.get<any>(`${this.url}/${idUsuario}/reservas`)
+  public carritoDeUsuario(idUsuario:number):Observable<any>{
+    return this.http.get<any>(`${this.url}/${idUsuario}/carrito`);
   }
 
-  public clientesPorUsuario(idUsuario:number):Observable<any>{
-    return this.http.get<any>(`${this.url}/${idUsuario}/pasajeros`);
-  }
 }

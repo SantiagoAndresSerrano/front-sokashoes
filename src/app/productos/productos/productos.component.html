@@ -28,7 +28,7 @@
                         <div class="toolbox">
                             <div class="toolbox-left">
                                 <div class="toolbox-info">
-                                    Mostrando <span>9 of 56</span> Productos
+                                    Mostrando <span>{{productos.length}}</span> Productos
                                 </div>
                                 <!-- End .toolbox-info -->
                             </div>
@@ -43,7 +43,7 @@
                                     <div class="col-6 col-lg-3">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{producto.url_img}}" alt="Product image" class="product-image">
+                                                <img src="{{producto.urlImg}}" alt="Product image" class="product-image">
                                             </a>
                                         </figure>
                                         <!-- End .product-media -->
@@ -155,7 +155,6 @@
                                         <div class="filter-items">
                                             <div class="filter-item">
                                                 <div class="custom-control custom-checkbox" *ngFor="let talla of tallas">
-                                                    <input type="text" class="custom-control-text" id="size-1">
                                                     <label class="custom-control-label" for="size-1">{{talla.nombre}}</label>
                                                 </div>
                                                 <!-- End .custom-text -->
