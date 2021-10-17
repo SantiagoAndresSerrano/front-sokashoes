@@ -13,7 +13,12 @@ import { TallaService } from './services/talla.service';
 import { ColorService } from './services/color.service';
 import { AuthLoginComponent } from './security/auth/auth-login/auth-login.component';
 import { AuthRegisterComponent } from './security/auth/auth-register/auth-register.component';
+import { FormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario.service';
+import { TransaccionService } from './services/transaccion.service';
+import { PaqInterceptorService } from './security/interceptors/paq-interceptor.service';
 
+import { interceptorProvider } from './security/interceptors/paq-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,10 +34,18 @@ import { AuthRegisterComponent } from './security/auth/auth-register/auth-regist
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
-  providers: [TallaService, ColorService],
+  providers: [
+    TallaService, 
+    ColorService,
+    UsuarioService,
+    TransaccionService,
+    PaqInterceptorService,
+    interceptorProvider
+    ],
   bootstrap: [AppComponent]
 
 })
