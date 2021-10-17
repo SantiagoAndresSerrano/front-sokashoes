@@ -11,6 +11,8 @@ import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
 import { TallaService } from './services/talla.service';
 import { ColorService } from './services/color.service';
+import { AuthLoginComponent } from './security/auth/auth-login/auth-login.component';
+import { AuthRegisterComponent } from './security/auth/auth-register/auth-register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ColorService } from './services/color.service';
     ProductosComponent,
     CarritoComponent,
     InicioComponent,
+    AuthLoginComponent,
+    AuthRegisterComponent,
   ],
   imports: [
     BrowserModule,
