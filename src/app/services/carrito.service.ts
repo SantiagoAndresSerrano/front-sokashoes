@@ -19,4 +19,8 @@ export class CarritoService {
    public consultarCarritoDeUsuario():Observable<any>{
     return this.http.get<any>(`${this.uri}/carrito`);
   }
+
+  public eliminarCarrito(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.uri}/carrito/${id}`);
+  }
 }

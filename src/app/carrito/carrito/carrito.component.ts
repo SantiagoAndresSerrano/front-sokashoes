@@ -76,23 +76,6 @@ export class CarritoComponent implements OnInit {
   cargarDatos(){
     this.carritoService.cargarCarritos(this.carrito).subscribe(data=>{
     })
-
-    var compra={
-      "idCompra":this.referenciaUnic,
-      "totalCompra":this.total,
-      "usuario":{
-        "id_Usuario": 116,
-        "username": "Geesis15",
-        "email": "ola",
-        "password": "gesis",
-        "roles": []
-    }
-    
-    }
-
-    this.compraService.guardarCompra(compra).subscribe(data=>{
-      console.log(data);
-    })
   
   }
 
@@ -120,6 +103,12 @@ export class CarritoComponent implements OnInit {
     this.descripcion = desc;
   }
 
+  eliminarCarrito(idCarrito:number){
+    this.carritoService.eliminarCarrito(idCarrito).subscribe(data=>{});
+    document.getElementById(`carrito${idCarrito}`)?.remove();
+    this.calcularTotal();
+  }
+
   mostrar(event:any, i:number){
     
     let cant = parseInt(event.target.value);
@@ -128,7 +117,7 @@ export class CarritoComponent implements OnInit {
       event.target.value = 1;
       return;
     }
-    
+
     let produc= this.carrito[i];
 
     produc.cantidad = parseInt(event.target.value)
@@ -146,7 +135,7 @@ export class CarritoComponent implements OnInit {
 
   generarReferencia():string{
     const fecha = new Date();
-    return Math.round((Math.random()*25544))+""+Math.round(fecha.getMilliseconds());
+    return Math.round((Math.random()*4754))+""+Math.round(fecha.getMilliseconds());
   }
 
   calcularTotal(){
