@@ -1,5 +1,6 @@
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { ColorService } from 'src/app/services/color.service';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -19,6 +20,7 @@ export class ProductosComponent implements OnInit {
 
   constructor(
     private pser: ProductoService,
+    private caser: CarritoService,
     private tser: TallaService,
     private cser: ColorService,
     private mser: MarcaService
@@ -52,4 +54,13 @@ export class ProductosComponent implements OnInit {
 
 
 
+  agregarACarrito(producto:any){
+
+    var carrito = {
+    cantidad: 1,
+    producto:producto.id
+    }
+    this.caser.guardarCarrito(carrito).subscribe(data=>{console.log(data);})
+    
+  }
 }

@@ -23,4 +23,8 @@ export class CarritoService {
   public eliminarCarrito(id:number):Observable<any>{
     return this.http.delete<any>(`${this.uri}/carrito/${id}`);
   }
+
+  public guardarCarrito(carrito:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/carrito/}`,carrito);
+  }
 }
