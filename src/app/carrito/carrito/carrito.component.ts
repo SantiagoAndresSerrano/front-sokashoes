@@ -120,10 +120,19 @@ export class CarritoComponent implements OnInit {
     this.descripcion = desc;
   }
 
-  mostrar(id:any, event:any){
-    let produc= this.carrito[id-1];
+  mostrar(event:any, i:number){
+    
+    let cant = parseInt(event.target.value);
+    
+    if(cant<=0 || cant>10){
+      event.target.value = 1;
+      return;
+    }
+    
+    let produc= this.carrito[i];
+
     produc.cantidad = parseInt(event.target.value)
-    this.carrito[id-1] = produc;
+    this.carrito[i] = produc;
     this.calcularTotal();
     document.getElementById("subtotal-pagar")!.innerHTML="$"+this.total;
     document.getElementById("total-pagar")!.innerHTML="$"+this.total;
