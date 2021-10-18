@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './carrito/carrito/carrito.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
 import { PayuComponent } from './payu/payu/payu.component';
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path: 'registro',component: AuthRegistroComponent},
   {path: 'miCuenta',component: DashboardComponent},
   {path: '',component: InicioComponent},
+  {path: 'admin',component: DashboardAdminComponent},
+
 
 
 ];
