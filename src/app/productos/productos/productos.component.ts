@@ -18,7 +18,7 @@ export class ProductosComponent implements OnInit {
   tallas:any = [];
   colores:any = [];
   marcas:any = [];
-  carrito:any=[];
+  carrito:any=null;
   cantidadMarcas: any = [];
   cantidadTallas: any = [];
   cantidadColores: any = [];
@@ -102,7 +102,6 @@ export class ProductosComponent implements OnInit {
   estaEnCarrito(idProducto:any):boolean{
     for (let i = 0; i <this.carrito.length; i++) {
       if(this.carrito[i].producto.idProducto == idProducto){
-        console.log(this.carrito[i].producto.idProducto, idProducto);
         return true;
       }      
     }
