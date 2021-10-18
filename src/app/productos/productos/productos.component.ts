@@ -59,22 +59,27 @@ export class ProductosComponent implements OnInit {
       this.cantidadPorMarcas();
     });
   }
-    cantidadPorMarcas(){
-      for (let i = 0; i < this.marcas.length; i++) {
-        this.mser.consultarCantidad(this.marcas[i].idMarca).subscribe( cantidad => {
-          this.cantidadMarcas[i] = cantidad;
-        })
-      }
-    
-  }
-
-  cantidadPorColores(){
-    for (let i = 0; i < this.colores.length; i++) {
-      this.mser.consultarCantidad(this.colores[i].idColor).subscribe( cantidad => {
-        this.cantidadColores[i] = cantidad;
+  cantidadPorMarcas(){
+    for (let i = 0; i < this.marcas.length; i++) {
+      this.mser.consultarCantidad(this.marcas[i].idMarca).subscribe( cantidad => {
+        this.cantidadMarcas[i] = cantidad;
       })
     }
   }
+  cantidadPorTallas(){
+      for (let i = 0; i < this.tallas.length; i++) {
+        this.tser.consultarCantidad(this.tallas[i].idTalla).subscribe( cantidad => {
+          this.cantidadTallas[i] = cantidad;
+        })
+      }
+    }
+    cantidadPorColores(){
+      for (let i = 0; i < this.colores.length; i++) {
+        this.cser.consultarCantidad(this.colores[i].idColor).subscribe( cantidad => {
+          this.cantidadColores[i] = cantidad;
+        })
+      }
+    }
 
   agregarACarrito(producto:any){
 

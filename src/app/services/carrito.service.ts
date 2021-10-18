@@ -16,7 +16,7 @@ export class CarritoService {
    public cargarCarritos(carritos:any):Observable<any>{
     return this.http.patch<any>(`${this.uri}/carrito/grupo`, carritos);
   }
-   public consultarCarritoDeUsuario():Observable<any>{
+   public consultarCarritoDeUsuario(id:number):Observable<any>{
     return this.http.get<any>(`${this.uri}/carrito`);
   }
 
