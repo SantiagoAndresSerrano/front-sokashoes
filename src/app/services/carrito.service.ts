@@ -25,6 +25,6 @@ export class CarritoService {
   }
 
   public guardarCarrito(carrito:any):Observable<any>{
-    return this.http.post<any>(`${this.uri}/carrito/}`,carrito);
+    return this.http.post<any>(`${this.uri}/carrito`,carrito);
   }
 }

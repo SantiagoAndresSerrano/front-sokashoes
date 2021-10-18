@@ -5,6 +5,8 @@ import { ColorService } from 'src/app/services/color.service';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { TallaService } from 'src/app/services/talla.service';
+import { TokenService } from 'src/app/services/token.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-productos',
@@ -17,16 +19,28 @@ export class ProductosComponent implements OnInit {
   colores:any = [];
   marcas:any = [];
   cantidadMarcas: any = [];
+  usuario:any;
+  username = "";
 
   constructor(
     private pser: ProductoService,
     private caser: CarritoService,
     private tser: TallaService,
     private cser: ColorService,
-    private mser: MarcaService
+    private mser: MarcaService,
+    private token:TokenService,
+    private usuarioService:UsuarioService
+
   ){}
 
+
   ngOnInit(): void {
+
+    this.username= this.token.getUserName();
+    this.usuarioService.usuarioPorUsername(this.username).subscribe(usuarioEncontrado=>{
+      this.usuario = usuarioEncontrado;
+    });
+
     this.pser.consultarProductos().subscribe( productos => {
       this.productos = productos;
     });
@@ -57,8 +71,9 @@ export class ProductosComponent implements OnInit {
   agregarACarrito(producto:any){
 
     var carrito = {
-    cantidad: 1,
-    producto:producto.id
+    "cantidad": 1,
+    "producto":producto,
+    "usuario":this.usuario
     }
     this.caser.guardarCarrito(carrito).subscribe(data=>{console.log(data);})
     
