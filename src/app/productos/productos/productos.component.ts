@@ -21,6 +21,7 @@ export class ProductosComponent implements OnInit {
   cantidadMarcas: any = [];
   usuario:any;
   username = "";
+  cantidadColores: any = [];
 
   constructor(
     private pser: ProductoService,
@@ -49,11 +50,11 @@ export class ProductosComponent implements OnInit {
     });
     this.cser.consultarColores().subscribe( colores => {
       this.colores = colores;
+      this.cantidadPorColores();
     });
     this.mser.consultarMarcas().subscribe( marcas => {
       this.marcas = marcas;
       this.cantidadPorMarcas();
-      console.log(this.cantidadMarcas)
     });
   }
     cantidadPorMarcas(){
@@ -66,7 +67,13 @@ export class ProductosComponent implements OnInit {
     
   }
 
-
+  cantidadPorColores(){
+    for (let i = 0; i < this.colores.length; i++) {
+      this.mser.consultarCantidad(this.colores[i].idColor).subscribe( cantidad => {
+        this.cantidadColores[i] = cantidad;
+      })
+    }
+  }
 
   agregarACarrito(producto:any){
 
