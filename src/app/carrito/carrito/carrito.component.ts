@@ -112,8 +112,7 @@ export class CarritoComponent implements OnInit {
   mostrar(event:any, i:number){
     
     let cant = parseInt(event.target.value);
-    
-    if(cant<=0 || cant>10){
+    if(cant<=0 || cant>10 || isNaN(cant)){
       event.target.value = 1;
       return;
     }
