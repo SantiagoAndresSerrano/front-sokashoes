@@ -18,6 +18,7 @@ export class ProductosComponent implements OnInit {
   tallas:any = [];
   colores:any = [];
   marcas:any = [];
+  carrito:any=[];
   cantidadMarcas: any = [];
   cantidadTallas: any = [];
   cantidadColores: any = [];
@@ -41,6 +42,9 @@ export class ProductosComponent implements OnInit {
     this.username= this.token.getUserName();
     this.usuarioService.usuarioPorUsername(this.username).subscribe(usuarioEncontrado=>{
       this.usuario = usuarioEncontrado;
+      this.usuarioService.carritoDeUsuario(this.usuario.id_Usuario).subscribe(carrito=>{
+        this.carrito = carrito;
+      })
     });
 
     this.pser.consultarProductos().subscribe( productos => {
@@ -83,6 +87,9 @@ export class ProductosComponent implements OnInit {
 
   agregarACarrito(producto:any){
 
+    if(this.estaEnCarrito(producto.idProducto)){
+      return;
+    }
     var carrito = {
     "cantidad": 1,
     "producto":producto,
@@ -90,5 +97,14 @@ export class ProductosComponent implements OnInit {
     }
     this.caser.guardarCarrito(carrito).subscribe(data=>{console.log(data);})
     
+  }
+
+  estaEnCarrito(idProducto:any):boolean{
+    for (let i = 0; i <this.carrito.length; i++) {
+      if(this.carrito[i].producto.idProducto == idProducto){
+        return true;
+      }      
+    }
+    return false;
   }
 }
