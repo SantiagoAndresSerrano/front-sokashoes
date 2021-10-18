@@ -1,3 +1,4 @@
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ColorService } from 'src/app/services/color.service';
 import { MarcaService } from 'src/app/services/marca.service';
@@ -14,6 +15,7 @@ export class ProductosComponent implements OnInit {
   tallas:any = [];
   colores:any = [];
   marcas:any = [];
+  cantidadMarcas: any = [];
 
   constructor(
     private pser: ProductoService,
@@ -34,7 +36,20 @@ export class ProductosComponent implements OnInit {
     });
     this.mser.consultarMarcas().subscribe( marcas => {
       this.marcas = marcas;
+      this.cantidadPorMarcas();
+      console.log(this.cantidadMarcas)
     });
   }
+    cantidadPorMarcas(){
+      for (let i = 0; i < this.marcas.length; i++) {
+        this.mser.consultarCantidad(this.marcas[i].idMarca).subscribe( cantidad => {
+          this.cantidadMarcas[i] = cantidad;
+        })
+        
+      }
+    
+  }
+
+
 
 }

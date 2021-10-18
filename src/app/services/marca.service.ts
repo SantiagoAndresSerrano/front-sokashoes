@@ -15,4 +15,8 @@ export class MarcaService {
     return this.http.get<any>(`${this.uri}`);
   }
 
+  public consultarCantidad(idmarca: any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${idmarca}/cantidad`);
+  }
+
 }

@@ -123,12 +123,13 @@
                                 <div class="collapse show" id="widget-1">
                                     <div class="widget-body">
                                         <div class="filter-items filter-items-count">
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-text" *ngFor="let marca of marcas">
+                                            <div class="filter-item" *ngFor="let marca of marcas;
+                                            let i = index" [attr.data-index]="i">
+                                                <div class="custom-control custom-text">
                                                     <label class="custom-control-label" for="cat-1">{{marca.nombre}}</label>
                                                 </div>
                                                 <!-- End .custom-checkbox -->
-                                                <span class="item-count">3</span>
+                                                <span class="item-count">{{cantidadMarcas[i]}}</span>
                                             </div>
                                             <!-- End .filter-item -->
 
