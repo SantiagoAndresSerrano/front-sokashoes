@@ -19,6 +19,8 @@ export class ProductosComponent implements OnInit {
   colores:any = [];
   marcas:any = [];
   cantidadMarcas: any = [];
+  cantidadTallas: any = [];
+  cantidadColores: any = [];
   usuario:any;
   username = "";
 
@@ -46,14 +48,16 @@ export class ProductosComponent implements OnInit {
     });
     this.tser.consultarTallas().subscribe( tallas => {
       this.tallas = tallas;
+      this.cantidadPorTallas();
     });
     this.cser.consultarColores().subscribe( colores => {
       this.colores = colores;
+      this.cantidadPorColores();
+      
     });
     this.mser.consultarMarcas().subscribe( marcas => {
       this.marcas = marcas;
       this.cantidadPorMarcas();
-      console.log(this.cantidadMarcas)
     });
   }
     cantidadPorMarcas(){
@@ -61,13 +65,22 @@ export class ProductosComponent implements OnInit {
         this.mser.consultarCantidad(this.marcas[i].idMarca).subscribe( cantidad => {
           this.cantidadMarcas[i] = cantidad;
         })
-        
       }
-    
-  }
-
-
-
+    }
+    cantidadPorTallas(){
+        for (let i = 0; i < this.tallas.length; i++) {
+          this.tser.consultarCantidad(this.tallas[i].idTalla).subscribe( cantidad => {
+            this.cantidadTallas[i] = cantidad;
+          })
+        }
+      }
+      cantidadPorColores(){
+        for (let i = 0; i < this.colores.length; i++) {
+          this.cser.consultarCantidad(this.colores[i].idColor).subscribe( cantidad => {
+            this.cantidadColores[i] = cantidad;
+          })
+        }
+      }
   agregarACarrito(producto:any){
 
     var carrito = {

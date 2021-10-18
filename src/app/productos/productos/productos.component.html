@@ -56,8 +56,7 @@
                                                 ${{producto.precio}}
                                             </div>
                                             <!-- End .product-price -->
-
-                                            <a (click)="agregarACarrito(producto)" class="btn-product btn-cart btn-round"><span>Agregar al carrito</span></a>
+                                            <button (click)="agregarACarrito(producto)" class="btn-product btn-cart btn btn-round"><span>Agregar al carrito</span></button>
                                         </div>
                                         <!-- End .product-list-action -->
                                     </div>
@@ -126,7 +125,7 @@
                                             <div class="filter-item" *ngFor="let marca of marcas;
                                             let i = index" [attr.data-index]="i">
                                                 <div class="custom-control custom-text">
-                                                    <label class="custom-control-label" for="cat-1">{{marca.nombre}}</label>
+                                                    <label class="" for="cat-1">{{marca.nombre}}</label>
                                                 </div>
                                                 <!-- End .custom-checkbox -->
                                                 <span class="item-count">{{cantidadMarcas[i]}}</span>
@@ -151,19 +150,18 @@
                                 <!-- End .widget-title -->
 
                                 <div class="collapse show" id="widget-2">
-                                    <div class="widget-body">
-                                        <div class="filter-items">
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-text" *ngFor="let talla of tallas">
-                                                    <label class="custom-control-label" for="size-1">{{talla.nombre}}</label>
-                                                </div>
-                                                <!-- End .custom-text -->
+                                    <div class="filter-items filter-items-count">
+                                        <div class="filter-item" *ngFor="let talla of tallas;
+                                        let i = index" [attr.data-index]="i">
+                                            <div class="custom-control custom-text">
+                                                <label class="" for="cat-1">{{talla.nombre}}</label>
                                             </div>
-                                            <!-- End .filter-item -->
+                                            <!-- End .custom-checkbox -->
+                                            <span class="item-count">{{cantidadTallas[i]}}</span>
                                         </div>
-                                        <!-- End .filter-items -->
+                                        <!-- End .filter-item -->
+
                                     </div>
-                                    <!-- End .widget-body -->
                                 </div>
                                 <!-- End .collapse -->
                             </div>
@@ -179,16 +177,17 @@
 
                                 <div class="collapse show" id="widget-3">
                                     <div class="widget-body">
-                                        <div class="filter-colors" *ngFor="let color of colores">
-                                            <label class="custom-control-label" for="size-1">{{color.nombre}}</label>
-                                            <a href="#"><span class="sr-only">{{color.nombre}}</span></a>
-                                            <!--    <a href="#" style="background: #f0c04a;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #333333;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" class="selected" style="background: #cc3333;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #3399cc;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #669933;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #f2719c;"><span class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #ebebeb;"><span class="sr-only">Color Name</span></a> -->
+                                        <div class="filter-items filter-items-count">
+                                            <div class="filter-item" *ngFor="let color of colores;
+                                            let i = index" [attr.data-index]="i">
+                                                <div class="">
+                                                    <label class="" for="cat-1">{{color.nombre}}</label>
+                                                </div>
+                                                <!-- End .custom-checkbox -->
+                                                <span class="item-count">{{cantidadColores[i]}}</span>
+                                            </div>
+                                            <!-- End .filter-item -->
+
                                         </div>
                                         <!-- End .filter-colors -->
                                     </div>
