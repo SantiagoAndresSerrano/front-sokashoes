@@ -19,9 +19,10 @@ export class ProductosComponent implements OnInit {
   colores:any = [];
   marcas:any = [];
   cantidadMarcas: any = [];
+  cantidadTallas: any = [];
+  cantidadColores: any = [];
   usuario:any;
   username = "";
-  cantidadColores: any = [];
 
   constructor(
     private pser: ProductoService,
@@ -47,6 +48,7 @@ export class ProductosComponent implements OnInit {
     });
     this.tser.consultarTallas().subscribe( tallas => {
       this.tallas = tallas;
+      this.cantidadPorTallas();
     });
     this.cser.consultarColores().subscribe( colores => {
       this.colores = colores;
@@ -62,7 +64,6 @@ export class ProductosComponent implements OnInit {
         this.mser.consultarCantidad(this.marcas[i].idMarca).subscribe( cantidad => {
           this.cantidadMarcas[i] = cantidad;
         })
-        
       }
     
   }

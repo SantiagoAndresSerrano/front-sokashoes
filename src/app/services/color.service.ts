@@ -17,4 +17,8 @@ export class ColorService {
   consultarColoresPorCantidad(id:any):Observable<any>{
     return this.http.get<any>(`${this.uri}/id/cantidad`);
   }
+  public consultarCantidad(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/cantidad`);
+  }
+
 }
