@@ -11,6 +11,7 @@ import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
 import { TallaService } from './services/talla.service';
 import { ColorService } from './services/color.service';
+import {MarcaService} from './services/marca.service';
 import { AuthLoginComponent } from './security/auth/auth-login/auth-login.component';
 import { AuthRegistroComponent } from './security/auth/auth-register/auth-registro.component';
 import { FormsModule } from '@angular/forms';
@@ -46,7 +47,8 @@ import { DashboardComponent } from './home/dashboard/dashboard/dashboard.compone
     UsuarioService,
     TransaccionService,
     PaqInterceptorService,
-    interceptorProvider
+    interceptorProvider,
+    MarcaService
     ],
   bootstrap: [AppComponent]
 

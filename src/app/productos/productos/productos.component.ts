@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorService } from 'src/app/services/color.service';
+import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { TallaService } from 'src/app/services/talla.service';
 
@@ -12,11 +13,13 @@ export class ProductosComponent implements OnInit {
   productos:any = [];
   tallas:any = [];
   colores:any = [];
+  marcas:any = [];
 
   constructor(
     private pser: ProductoService,
     private tser: TallaService,
-    private cser: ColorService
+    private cser: ColorService,
+    private mser: MarcaService
   ){}
 
   ngOnInit(): void {
@@ -28,6 +31,9 @@ export class ProductosComponent implements OnInit {
     });
     this.cser.consultarColores().subscribe( colores => {
       this.colores = colores;
+    });
+    this.mser.consultarMarcas().subscribe( marcas => {
+      this.marcas = marcas;
     });
   }
 
