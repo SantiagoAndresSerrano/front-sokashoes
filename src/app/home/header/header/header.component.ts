@@ -13,7 +13,10 @@ export class HeaderComponent implements OnInit {
   carrito:any = [];
   username = "";
   usuario!:any;
+  isLogged = false;
+  isLoginFail = false;
   cantidadTotal=0;
+  roles: string[] = [];
 
   constructor(
     private token:TokenService,
@@ -24,11 +27,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.username= this.token.getUserName();
-
-   this.usuarioService.usuarioPorUsername(this.username).subscribe(usuarioEncontrado=>{
-     this.usuario = usuarioEncontrado;
-
-     this.usuarioService.carritoDeUsuario(this.usuario.id_Usuario).subscribe(carritos=>{
+    if (this.token.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.token.getAuthorities();
+    }
+    this.usuarioService.usuarioPorUsername(this.username).subscribe(usuarioEncontrado=>{
+      this.usuario = usuarioEncontrado;
+      this.usuarioService.carritoDeUsuario(this.usuario.id_Usuario).subscribe(carritos=>{
       this.carrito = carritos;
       this.calcularTotal();
       this.calcularCantidad();

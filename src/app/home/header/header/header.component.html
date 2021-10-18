@@ -18,12 +18,21 @@
             <!-- End .header-left -->
 
             <div class="header-right">
-                <div class="account">
+                <div *ngIf="isLogged" class="account">
                     <a routerLink="/miCuenta" title="My account">
                         <div class="icon">
                             <i class="icon-user"></i>
                         </div>
-                        <p>Cuenta</p>
+                        <p>Mi Cuenta</p>
+                    </a>
+                </div><!-- End .compare-dropdown -->
+
+                <div *ngIf="!isLogged" class="account">
+                    <a routerLink="/login" title="My account">
+                        <div class="icon">
+                            <i class="icon-user"></i>
+                        </div>
+                        <p>Iniciar sesion</p>
                     </a>
                 </div><!-- End .compare-dropdown -->
 
