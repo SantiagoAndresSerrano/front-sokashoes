@@ -124,6 +124,7 @@ export class CarritoComponent implements OnInit {
     this.calcularTotal();
     document.getElementById("subtotal-pagar")!.innerHTML="$"+this.total;
     document.getElementById("total-pagar")!.innerHTML="$"+this.total;
+    this.actializarFirma();
   }
 
   calcularTotalInd(carrito:any):number{
