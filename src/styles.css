@@ -4,6 +4,11 @@
   border-color:#007bff00!important
 }
 
+.stats{
+  border-radius: 10px!important;
+  box-shadow: rgba(14, 120, 226, 0.548) 0px 8px 24px!important;
+
+}
 
 /* You can add global styles to this file, and also import other style files */
 /*!
