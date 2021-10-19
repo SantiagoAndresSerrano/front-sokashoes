@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 18, 2021 at 12:58 AM
+-- Generation Time: Oct 19, 2021 at 03:22 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `carrito` (
   PRIMARY KEY (`id_carrito`),
   KEY `carrito_usuario_fk` (`usuario`),
   KEY `carrito_producto_fk` (`producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `carrito`
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `carrito` (
 
 INSERT INTO `carrito` (`id_carrito`, `cantidad`, `usuario`, `producto`) VALUES
 (1, 2, 119, 1),
-(2, 3, 123, 1),
-(3, 0, 123, 4),
-(4, 0, 123, 3);
+(73, 5, 123, 1),
+(74, 1, 123, 2),
+(75, 1, 123, 3);
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,8 @@ CREATE TABLE IF NOT EXISTS `color` (
 --
 
 INSERT INTO `color` (`id_color`, `nombre`) VALUES
-('#FFFFFF', 'blanco');
+('#FFFFFF', 'blanco'),
+('DFJDFFG', 'blanco');
 
 -- --------------------------------------------------------
 
@@ -194,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   PRIMARY KEY (`id_producto`),
   KEY `producto_categoria_fk` (`categoria`),
   KEY `producto_marca_fk` (`marca`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `producto`
