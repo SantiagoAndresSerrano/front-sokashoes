@@ -6,7 +6,19 @@
 
 .stats{
   border-radius: 10px!important;
-  box-shadow: rgba(14, 120, 226, 0.548) 0px 8px 24px!important;
+}
+
+.green{
+  box-shadow: rgba(5, 190, 61, 0.534) 0px 8px 24px!important;
+}
+
+.blue{
+  box-shadow: rgba(3, 125, 247, 0.534) 0px 8px 24px!important;
+
+}
+
+.red{
+  box-shadow: rgba(247, 3, 3, 0.534) 0px 8px 24px!important;
 
 }
 
