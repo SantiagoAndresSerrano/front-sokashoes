@@ -23,6 +23,8 @@ import { interceptorProvider } from './security/interceptors/paq-interceptor.ser
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
 import { XdComponent } from './prueba/xd/xd.component';
+import { FormProductComponent } from './home/forms/form-product/form-product/form-product.component';
+import { HeaderAdminComponent } from './home/header-admin/header-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,8 @@ import { XdComponent } from './prueba/xd/xd.component';
     DashboardComponent,
     DashboardAdminComponent,
     XdComponent,
+    FormProductComponent,
+    HeaderAdminComponent,
   ],
   imports: [
     BrowserModule,
