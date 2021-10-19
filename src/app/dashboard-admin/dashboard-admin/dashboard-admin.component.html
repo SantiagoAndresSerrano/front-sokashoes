@@ -1,4 +1,9 @@
-<body>
+
+<body *ngIf="!isLogged">
+    
+</body>
+
+<body *ngIf="isLogged">
     <div class="dash">
         <div class="dash-app">
             <app-menu-admin></app-menu-admin>

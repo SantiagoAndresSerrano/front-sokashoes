@@ -15,10 +15,6 @@ export class CompraService {
     return this.http.get<any>(`${this.uri}`);
   }
 
-  public guardarCompra(compra:any):Observable<any>{
-    return this.http.post<any>(this.uri,compra);
-  }
-
   public valorVentas():Observable<any>{
     return this.http.get<any>(`${this.uri}/preciototal`);
   }
