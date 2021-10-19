@@ -22,6 +22,7 @@ import { PaqInterceptorService } from './security/interceptors/paq-interceptor.s
 import { interceptorProvider } from './security/interceptors/paq-interceptor.service';
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
+import { XdComponent } from './prueba/xd/xd.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashb
     AuthRegistroComponent,
     DashboardComponent,
     DashboardAdminComponent,
+    XdComponent,
   ],
   imports: [
     BrowserModule,
