@@ -26,6 +26,8 @@ import { XdComponent } from './prueba/xd/xd.component';
 import { FormProductComponent } from './home/forms/form-product/form-product/form-product.component';
 import { HeaderAdminComponent } from './home/header-admin/header-admin.component';
 import { MenuAdminComponent } from './home/menu-admin/menu-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import { MenuAdminComponent } from './home/menu-admin/menu-admin.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [
