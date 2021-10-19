@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompraService } from 'src/app/services/compra.service';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardAdminComponent implements OnInit {
 
-  constructor() { }
+  cantidadClientes: any
+
+  constructor(
+    private cser: CompraService
+  ){}
 
   ngOnInit(): void {
+    this.cser.contarClientesReg().subscribe(cantidad => {
+      this.cantidadClientes = cantidad;
+    })
   }
 
 }
