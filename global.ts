@@ -1,7 +1,7 @@
 'use strict';
 // ==============================Backend==============================
 // ****Pruebas****
-export const url = "https://nortexploradores.herokuapp.com";
+export const url = "https://sokashoes-back.herokuapp.com";
 
 
 
