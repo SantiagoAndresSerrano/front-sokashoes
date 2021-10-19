@@ -74,6 +74,8 @@ export class CarritoComponent implements OnInit {
   }
   
   cargarDatos(){
+
+
     this.carritoService.cargarCarritos(this.carrito).subscribe(data=>{
     })
   
