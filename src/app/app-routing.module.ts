@@ -17,8 +17,8 @@ const routes: Routes = [
   {path: 'login',component: AuthLoginComponent},
   {path: 'registro',component: AuthRegistroComponent},
   {path: 'miCuenta',component: DashboardComponent},
-  {path: '',component: InicioComponent},
   {path: 'admin',component: DashboardAdminComponent},
+  {path: '',component: InicioComponent},
 
 
 
