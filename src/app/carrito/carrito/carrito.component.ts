@@ -73,12 +73,24 @@ export class CarritoComponent implements OnInit {
     
   }
   
-  cargarDatos(){
+   cargarDatos(form:any){
 
-
+    var compra= {
+      "idCompra":this.referenciaUnic,
+      "totalCompra":this.total,
+      "estado":"PENDIENTE"
+    }
+    console.log("pruebaaa");
     this.carritoService.cargarCarritos(this.carrito).subscribe(data=>{
     })
   
+    this.compraService.guardarCompra(compra,this.usuario.id_Usuario).subscribe(data=>{
+      console.log(data);
+      console.log(document.getElementById("formulario"));
+
+      form.submit()
+    })
+    
   }
 
 

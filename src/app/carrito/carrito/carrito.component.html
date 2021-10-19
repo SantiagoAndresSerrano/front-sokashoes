@@ -80,7 +80,7 @@
 	                				</table><!-- End .table table-summary -->
 									
 									<!-- Payu pruebas -->
-									<form #form method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
+									<form #form id="formulario" method="post" action="https://gateway.payulatam.com/ppp-web-gateway/">
 										<input name="merchantId"    type="hidden"  value={{idMercado}}   >
 										<input name="accountId"     type="hidden"  value={{idCuenta}} >
 										<input name="description"   type="hidden"  value={{descripcion}}  >
@@ -95,7 +95,7 @@
 										<input name="buyerEmail"    type="hidden"  value={{email}} >
 										<input name="responseUrl"   type="hidden"  value="">
 										<input name="confirmationUrl" type="hidden"  value="" >
-										<input type="submit" target="_blank" (click)="cargarDatos();form.submit()" class="btn btn-outline-primary-2 btn-order btn-block btn-round" value="Pagar PayU">
+										<input type="submit" target="_blank" (click)="cargarDatos(form)" class="btn btn-outline-primary-2 btn-order btn-block btn-round" value="Pagar PayU">
 									  </form>
 
 

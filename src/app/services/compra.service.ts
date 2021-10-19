@@ -22,5 +22,7 @@ export class CompraService {
   public valorVentas():Observable<any>{
     return this.http.get<any>(`${this.uri}/preciototal`);
   }
-
+    public guardarCompra(compra:any,idPersona:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/${idPersona}`,compra);
+  }
 }
