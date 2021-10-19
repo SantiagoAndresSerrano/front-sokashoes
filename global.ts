@@ -1,8 +1,8 @@
 'use strict';
 // ==============================Backend==============================
 // ****Pruebas****
-export const url = "https://sokashoes-back.herokuapp.com";
-// export const url = "http://localhost:8080";
+//export const url = "https://sokashoes-back.herokuapp.com";
+export const url = "http://localhost:8080";
 
 
 

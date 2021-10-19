@@ -19,7 +19,8 @@ export class CompraService {
     return this.http.post<any>(this.uri,compra);
   }
 
-  public contarClientesReg():Observable<any>{
-    return this.http.get<any>(`${this.uri}/cantidadclientes`);
+  public valorVentas():Observable<any>{
+    return this.http.get<any>(`${this.uri}/preciototal`);
   }
+
 }

@@ -23,4 +23,8 @@ export class ProductoService {
     return this.http.get<any>(`${this.uri}`);
   }
 
+  public contarProductos():Observable<producto[]>{
+    return this.http.get<any>(`${this.uri}/cantidadDisponible`);
+  }
+
 }

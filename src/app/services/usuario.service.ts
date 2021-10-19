@@ -27,4 +27,8 @@ export class UsuarioService {
     return this.http.get<any>(`${this.url}/${idUsuario}/carrito`);
   }
 
+  public contarClientesReg():Observable<any>{
+    return this.http.get<any>(`${this.url}/cantidadclientes`);
+  }
+
 }
