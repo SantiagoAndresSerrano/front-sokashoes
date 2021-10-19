@@ -15,6 +15,9 @@ export class ProductoService {
   public consultarProductos():Observable<any>{
     return this.http.get<any>(`${this.uri}`);
   }
+  public guardarProducto(producto:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}`,producto);
+  }
 
   public consultarProductosClass():Observable<producto[]>{
     return this.http.get<any>(`${this.uri}`);

@@ -16,6 +16,12 @@
   box-shadow: rgba(3, 125, 247, 0.534) 0px 8px 24px!important;
 
 }
+.img-tabla{
+  width: 80px;
+  height: 90px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 10px;
+}
 
 .red{
   box-shadow: rgba(247, 3, 3, 0.534) 0px 8px 24px!important;
@@ -30,6 +36,33 @@
 .rounded-card{
   border-radius: 10px;
   
+}
+.btn-eliminar{
+  border-color: #29282900;
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: rgba(216, 56, 7, 0.596) 0px 8px 24px!important;
+  width: 40px;
+  height: 40px;
+}
+.btn-eliminar:hover{
+  box-shadow: rgba(216, 56, 7, 0.438) 0px 8px 24px!important;
+
+}
+.btn-editar:hover{
+  box-shadow: rgba(248, 176, 21, 0.596) 0px 8px 24px!important;
+}
+
+.btn-editar{
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+
+  border-color: #29282900;
+  background-color: #f7aa04c2;
+  box-shadow: rgba(201, 142, 15, 0.774) 0px 8px 24px!important;
+
 }
 
 /* You can add global styles to this file, and also import other style files */

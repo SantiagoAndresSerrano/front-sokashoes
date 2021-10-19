@@ -27,6 +27,7 @@ import { FormProductComponent } from './home/forms/form-product/form-product/for
 import { HeaderAdminComponent } from './home/header-admin/header-admin.component';
 import { MenuAdminComponent } from './home/menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableProductComponent } from './home/forms/table-product/table-product/table-product.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormProductComponent,
     HeaderAdminComponent,
     MenuAdminComponent,
+    TableProductComponent,
   ],
   imports: [
     BrowserModule,

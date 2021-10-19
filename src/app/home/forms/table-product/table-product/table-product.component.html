@@ -1,0 +1,50 @@
+<body>
+    <div class="dash">
+        <div class="dash-app">
+            <app-menu-admin></app-menu-admin>
+            <app-header-admin></app-header-admin>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div  style="margin: 10px;" class="card spur-card">
+                        <div class="card-header">
+                            <div class="spur-card-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="spur-card-title">Lista de productos</div>
+                        </div>
+                        <div class="card-body ">
+                            <table class="table table-in-card">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Img</th>
+                                        <th scope="col">Modelo</th>
+                                        <th scope="col">Marca</th>
+                                        <th scope="col">Accion</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let producto of productos;let i =index">
+                                    <tr>
+                                        <th scope="row">{{i}}</th>
+                                        <td>{{producto.idProducto}}</td>
+                                        <td>{{producto.categoria.nombre}}</td>
+                                        <td><img class="img-tabla" src="{{producto.urlImg}}" alt=""></td>
+                                        <td>{{producto.modelo}}</td>
+                                        <td>{{producto.marca.nombre}}</td>
+                                        <td><button (click)="eliminar(producto.idProducto)" class="btn-eliminar btn-danger"><i class="fas fa-trash-alt"></i></button> <button class="btn-editar"><i class="fas fa-edit"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

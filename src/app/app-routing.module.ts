@@ -4,6 +4,7 @@ import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 import { FormProductComponent } from './home/forms/form-product/form-product/form-product.component';
+import { TableProductComponent } from './home/forms/table-product/table-product/table-product.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
 import { PayuComponent } from './payu/payu/payu.component';
 import { ProductosComponent } from './productos/productos/productos.component';
@@ -19,8 +20,9 @@ const routes: Routes = [
   {path: 'registro',component: AuthRegistroComponent},
   {path: 'miCuenta',component: DashboardComponent},
   {path: 'admin',component: DashboardAdminComponent},
-  {path: 'formProducto',component: FormProductComponent},
+  {path: 'agregarProducto',component: FormProductComponent},
   {path: '',component: InicioComponent},
+  {path: 'listaproductos',component: TableProductComponent},
 
 
 
