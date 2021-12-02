@@ -27,6 +27,10 @@ export class ProductoService {
     return this.http.put<any>(`${this.uri}`,producto);
   }
 
+  public eliminarProducto(id:any):Observable<any>{
+    return this.http.delete<any>(`${this.uri}/${id}`);
+  }
+
   public consultarProductosClass():Observable<producto[]>{
     return this.http.get<any>(`${this.uri}`);
   }
