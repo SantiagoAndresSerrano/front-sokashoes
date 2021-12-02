@@ -28,6 +28,7 @@ import { HeaderAdminComponent } from './home/header-admin/header-admin.component
 import { MenuAdminComponent } from './home/menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableProductComponent } from './home/forms/table-product/table-product/table-product.component';
+import { EditProductosComponent } from './home/forms/form-product/edit-productos/edit-productos.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { TableProductComponent } from './home/forms/table-product/table-product/
     HeaderAdminComponent,
     MenuAdminComponent,
     TableProductComponent,
+    EditProductosComponent,
   ],
   imports: [
     BrowserModule,

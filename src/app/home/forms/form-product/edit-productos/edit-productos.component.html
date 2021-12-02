@@ -12,10 +12,11 @@
                                 <div class="spur-card-icon">
                                     <i class="fas fa-chart-bar"></i>
                                 </div>
-                                <div class="spur-card-title"> Agregar producto </div>
+                                <div class="spur-card-title"> Editar producto </div>
                             </div>
                             <div class="card-body rounded">
                                 <form [formGroup]="form" (submit)="onSubmit()">
+                                    <input formControlName="idProducto" type="hidden" class="form-control">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Categoría </label>
                                         <select class="form-control" formControlName="categoria" *ngFor="let categoria of categorias">
@@ -51,11 +52,11 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Marca</label>
                                         <select class="form-control" formControlName="marca">
-                                            <option *ngFor="let marca of marcas" value="{{marca.idMarca}}">{{marca.nombre}}</option>
+                                            <option *ngFor="let marca of marcas"  value="{{marca.idMarca}}" >{{marca.nombre}}</option>
                                         </select>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Agregar</button>
+                                    <button type="submit" class="btn btn-primary">Editar</button>
                                 </form>
                             </div>
                         </div>

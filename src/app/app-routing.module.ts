@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
+import { EditProductosComponent } from './home/forms/form-product/edit-productos/edit-productos.component';
 import { FormProductComponent } from './home/forms/form-product/form-product/form-product.component';
 import { TableProductComponent } from './home/forms/table-product/table-product/table-product.component';
 import { InicioComponent } from './home/inicio/inicio/inicio.component';
@@ -23,8 +24,7 @@ const routes: Routes = [
   {path: 'agregarProducto',component: FormProductComponent},
   {path: '',component: InicioComponent},
   {path: 'listaproductos',component: TableProductComponent},
-
-
+  {path: 'editarProducto/:idProducto',component: EditProductosComponent},
 
 ];
 
