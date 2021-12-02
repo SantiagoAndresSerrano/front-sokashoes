@@ -19,6 +19,14 @@ export class ProductoService {
     return this.http.post<any>(`${this.uri}`,producto);
   }
 
+  public encontrarProducto(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}`);
+  }
+
+  public editarProducto(producto:any):Observable<any>{
+    return this.http.put<any>(`${this.uri}`,producto);
+  }
+
   public consultarProductosClass():Observable<producto[]>{
     return this.http.get<any>(`${this.uri}`);
   }
