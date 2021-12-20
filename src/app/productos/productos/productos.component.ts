@@ -96,13 +96,16 @@ export class ProductosComponent implements OnInit {
       }
     }
 
+
+  
+
   agregarACarrito(producto:any){
-    this.toastr.warning('¡Producto ya registrado!', '', {
-      timeOut: 3000, positionClass: 'toast-top-center'
-    });
+    
     
     if(this.estaEnCarrito(producto.idProducto)){
-      
+      this.toastr.warning('¡Producto ya registrado!', '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
       return;
     }
     var carrito = {
@@ -110,7 +113,14 @@ export class ProductosComponent implements OnInit {
     "producto":producto,
     "usuario":this.usuario
     }
-    this.caser.guardarCarrito(carrito).subscribe(data=>{console.log(data);})
+    this.caser.guardarCarrito(carrito).subscribe(async data=>{
+     
+      this.toastr.success('¡Producto agregado con exito!', '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      })
+      await new Promise(f => setTimeout(f, 1500));
+      window.location.reload();
+    })
     
   }
 
@@ -122,4 +132,5 @@ export class ProductosComponent implements OnInit {
     }
     return false;
   }
+
 }

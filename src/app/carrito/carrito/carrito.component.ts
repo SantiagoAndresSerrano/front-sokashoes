@@ -6,6 +6,7 @@ import * as crypto from "crypto-js";
 import * as global from 'global'
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { TokenService } from 'src/app/services/token.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
@@ -30,7 +31,7 @@ export class CarritoComponent implements OnInit {
   nombrePersona = "Genesis";
   idUsuario = "116";
 
-  url = `http://fee8-186-99-52-63.ngrok.io/pagos/confirmacion`;
+  url = `https://sokashoes-back.herokuapp.com/pagos/confirmacion`;
 
   //Variables Payu test
 
@@ -52,7 +53,8 @@ export class CarritoComponent implements OnInit {
     private usuarioService:UsuarioService,
     private compraService: CompraService,
     private carritoService: CarritoService,
-    private token:TokenService
+    private token:TokenService,
+    private toastS:ToastrService
 
     ) { }
 
@@ -74,20 +76,21 @@ export class CarritoComponent implements OnInit {
   }
   
    cargarDatos(form:any){
-
+    
     var compra= {
       "idCompra":this.referenciaUnic,
       "totalCompra":this.total,
       "estado":"PENDIENTE"
     }
-    console.log("pruebaaa");
     this.carritoService.cargarCarritos(this.carrito).subscribe(data=>{
     })
   
-    this.compraService.guardarCompra(compra,this.usuario.id_Usuario).subscribe(data=>{
-      console.log(data);
-      console.log(document.getElementById("formulario"));
-
+    this.compraService.guardarCompra(compra,this.usuario.id_Usuario).subscribe(async data=>{
+      this.toastS.success('¡Compra registrada!', '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      })
+      await new Promise(f => setTimeout(f, 1500));
+      window.location.reload();
       form.submit()
     })
     

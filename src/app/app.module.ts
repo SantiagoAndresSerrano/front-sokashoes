@@ -33,6 +33,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactoComponent } from './home/contacto/contacto.component';
+import { InformacionPagoComponent } from './informacion-pago/informacion-pago.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { ContactoComponent } from './home/contacto/contacto.component';
     TableProductComponent,
     EditProductosComponent,
     ContactoComponent,
+    InformacionPagoComponent,
   ],
   imports: [
     BrowserModule,

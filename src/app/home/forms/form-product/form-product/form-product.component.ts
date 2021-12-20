@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -20,7 +21,9 @@ export class FormProductComponent implements OnInit {
     private categoriaService:CategoriaService,
     private marcaService:MarcaService,
     private formBuilder: FormBuilder,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private toastS:ToastrService
+
     ) { }
   
   ngOnInit(): void {
@@ -47,8 +50,12 @@ export class FormProductComponent implements OnInit {
     
   }
   onSubmit(){
-    this.productoService.guardarProducto(this.form.value).subscribe(producto=>{
-      console.log(producto);
+    this.productoService.guardarProducto(this.form.value).subscribe(async producto=>{
+      this.toastS.success('¡Producto registrado!', '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      })
+      await new Promise(f => setTimeout(f, 1500));
+      window.location.reload();
     })
   }
 

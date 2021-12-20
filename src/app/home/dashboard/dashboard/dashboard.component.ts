@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -18,9 +20,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private token:TokenService,
-    private usuarioService:UsuarioService)
+    private usuarioService:UsuarioService,
+    private router: Router
+    )
     { }
-
+  
   ngOnInit(): void {
    this.username= this.token.getUserName();
    if (this.token.getToken()) {
@@ -33,7 +37,10 @@ export class DashboardComponent implements OnInit {
      this.cargarCompras();
    })
   }
-
+  cerrarSesion(){
+    this.token.logOut();
+    this.router.navigate(["/inicio"]);
+  }
   cargarCompras(){
     this.usuarioService.comprasPorUsuario(this.usuario.id_Usuario).subscribe(compras=>{
 

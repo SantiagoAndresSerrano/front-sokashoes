@@ -107,8 +107,11 @@
 
                         </li>
                         <li>
-                            <a href="blog.html" class="sf-with">Contactanos</a>
-
+                            <a href="#" routerLink="/contacto" class="sf-with">Contactanos</a>
+                        </li>  
+                        <li>
+                            <a href="#" *ngIf="isAdmin" routerLink="/admin" class="sf-with">Admin</a>
+                        </li>    
                 
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->

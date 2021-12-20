@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   isLoginFail = false;
   cantidadTotal=0;
   roles: string[] = [];
-
+  isAdmin = false;
   constructor(
     private token:TokenService,
     private usuarioService:UsuarioService
@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
+    if(this.token.getAuthorities().length>1){
+      this.isAdmin=true;
+    }
     this.username= this.token.getUserName();
     if (this.token.getToken()) {
       this.isLogged = true;

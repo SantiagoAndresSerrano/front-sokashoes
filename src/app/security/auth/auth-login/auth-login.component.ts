@@ -33,7 +33,7 @@ export class AuthLoginComponent implements OnInit {
       this.roles = this.tokenService.getAuthorities();
     }
   }
-
+  
   onLogin(): void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(
@@ -47,15 +47,22 @@ export class AuthLoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        console.log(this.tokenService.getAuthorities());
+        if(this.tokenService.getAuthorities().length>1){
+          this.router.navigate(['/admin']);
+        }else{
+          this.router.navigate(['/']);
+
+        }
+
       },
       err => {
         this.isLogged = false;
         this.errMsj = err.error.message;
-        // this.toastr.error(this.errMsj, 'Fail', {
-        //   timeOut: 3000,  positionClass: 'toast-top-center',
-        // });
-        // console.log(err.error.message);
+        this.toastr.error(this.errMsj, 'Fail', {
+          timeOut: 3000,  positionClass: 'toast-top-center',
+        });
+        console.log(err.error.message);
       }
     );
   }
