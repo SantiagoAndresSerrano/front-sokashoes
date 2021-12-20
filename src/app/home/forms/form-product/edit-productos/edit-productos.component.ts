@@ -36,8 +36,10 @@ export class EditProductosComponent implements OnInit {
       cantidad:['',Validators.required],
       descripcion:['',Validators.required],
       marca:['',Validators.required],
+      estado:['',Validators.required],
     });
     this.productoService.encontrarProducto(this.id).subscribe(producto => {
+      
       this.form.setValue({
       idProducto: producto.idProducto,
       categoria: producto.categoria.idCategoria,
@@ -47,6 +49,7 @@ export class EditProductosComponent implements OnInit {
       cantidad:producto.cantidad,
       descripcion: producto.descripcion,
       marca: producto.marca.idMarca,
+      estado:producto.estado
       });
     });
 
@@ -63,6 +66,7 @@ export class EditProductosComponent implements OnInit {
   }
   onSubmit(){
     this.productoService.editarProducto(this.form.value).subscribe(producto=>{
+      console.log(producto);
     });
   }
 }

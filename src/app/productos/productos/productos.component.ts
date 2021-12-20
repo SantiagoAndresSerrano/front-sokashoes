@@ -7,6 +7,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { TallaService } from 'src/app/services/talla.service';
 import { TokenService } from 'src/app/services/token.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-productos',
@@ -23,6 +24,7 @@ export class ProductosComponent implements OnInit {
   cantidadTallas: any = [];
   cantidadColores: any = [];
   usuario:any;
+  totalActivos = 0;
   username = "";
 
   constructor(
@@ -31,6 +33,7 @@ export class ProductosComponent implements OnInit {
     private tser: TallaService,
     private cser: ColorService,
     private mser: MarcaService,
+    private toastr: ToastrService,
     private token:TokenService,
     private usuarioService:UsuarioService
 
@@ -49,6 +52,14 @@ export class ProductosComponent implements OnInit {
 
     this.pser.consultarProductos().subscribe( productos => {
       this.productos = productos;
+
+      for (let i = 0; i < productos.length; i++) {
+        if(productos[i].estado==true){
+          this.totalActivos++;
+        }
+        
+      }
+
     });
     this.tser.consultarTallas().subscribe( tallas => {
       this.tallas = tallas;
@@ -86,8 +97,12 @@ export class ProductosComponent implements OnInit {
     }
 
   agregarACarrito(producto:any){
-
+    this.toastr.warning('¡Producto ya registrado!', '', {
+      timeOut: 3000, positionClass: 'toast-top-center'
+    });
+    
     if(this.estaEnCarrito(producto.idProducto)){
+      
       return;
     }
     var carrito = {

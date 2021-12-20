@@ -30,6 +30,12 @@ export class ProductoService {
   public eliminarProducto(id:any):Observable<any>{
     return this.http.delete<any>(`${this.uri}/${id}`);
   }
+  public deshabilitar(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/deshabilitar`);
+  }
+  public habilitar(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/habilitar`);
+  }
 
   public consultarProductosClass():Observable<producto[]>{
     return this.http.get<any>(`${this.uri}`);

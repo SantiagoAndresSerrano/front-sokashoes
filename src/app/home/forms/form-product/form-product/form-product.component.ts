@@ -4,10 +4,12 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductoService } from 'src/app/services/producto.service';
 
+
 @Component({
   selector: 'app-form-product',
   templateUrl: './form-product.component.html'
 })
+
 export class FormProductComponent implements OnInit {
 
   categorias:any = [];

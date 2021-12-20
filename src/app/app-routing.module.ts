@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './carrito/carrito/carrito.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin/dashboard-admin.component';
+import { ContactoComponent } from './home/contacto/contacto.component';
 import { DashboardComponent } from './home/dashboard/dashboard/dashboard.component';
 import { EditProductosComponent } from './home/forms/form-product/edit-productos/edit-productos.component';
 import { FormProductComponent } from './home/forms/form-product/form-product/form-product.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path: 'miCuenta',component: DashboardComponent},
   {path: 'admin',component: DashboardAdminComponent},
   {path: 'agregarProducto',component: FormProductComponent},
+  {path: 'contacto',component: ContactoComponent},
+
   {path: '',component: InicioComponent},
   {path: 'listaproductos',component: TableProductComponent},
   {path: 'editarProducto/:idProducto',component: EditProductosComponent},

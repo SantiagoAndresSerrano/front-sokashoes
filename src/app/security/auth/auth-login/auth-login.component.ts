@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-auth-login',
   templateUrl: './auth-login.component.html',
@@ -20,7 +22,7 @@ export class AuthLoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
-    // private toastr:ToastrService
+    private toastr:ToastrService
   ) { }
 
   ngOnInit() {
@@ -42,9 +44,9 @@ export class AuthLoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        // this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
-        //   timeOut: 3000, positionClass: 'toast-top-center'
-        // });
+        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
         this.router.navigate(['/']);
       },
       err => {

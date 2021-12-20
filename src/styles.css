@@ -45,6 +45,17 @@
   width: 40px;
   height: 40px;
 }
+
+.btn-activar{
+  border-color: #29282900;
+  border-style: none;
+  border-radius: 10px;
+  background-color: rgba(28, 204, 4, 0.596);
+  box-shadow: rgba(29, 226, 3, 0.596) 0px 8px 24px!important;
+  width: 40px;
+  height: 40px;
+}
+
 .btn-eliminar:hover{
   box-shadow: rgba(216, 56, 7, 0.438) 0px 8px 24px!important;
 

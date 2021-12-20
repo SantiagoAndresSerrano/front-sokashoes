@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
   isLogged = false;
   isLoginFail = false;
   roles: string[] = [];
-
-  compras = [];
+  pag = 0;
+  compras:any[] = [];
 
   constructor(
     private token:TokenService,
@@ -36,7 +36,12 @@ export class DashboardComponent implements OnInit {
 
   cargarCompras(){
     this.usuarioService.comprasPorUsuario(this.usuario.id_Usuario).subscribe(compras=>{
-      this.compras = compras;
+
+      for (let i = 0; i < compras.length; i++) {
+        if(compras[i].usuario.id_Usuario == this.usuario.id_Usuario){
+          this.compras.push(compras[i])
+        }
+      }
     })
   }
 

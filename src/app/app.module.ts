@@ -29,7 +29,10 @@ import { MenuAdminComponent } from './home/menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableProductComponent } from './home/forms/table-product/table-product/table-product.component';
 import { EditProductosComponent } from './home/forms/form-product/edit-productos/edit-productos.component';
-
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactoComponent } from './home/contacto/contacto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,14 +52,16 @@ import { EditProductosComponent } from './home/forms/form-product/edit-productos
     MenuAdminComponent,
     TableProductComponent,
     EditProductosComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     TallaService, 
@@ -65,7 +70,8 @@ import { EditProductosComponent } from './home/forms/form-product/edit-productos
     TransaccionService,
     PaqInterceptorService,
     interceptorProvider,
-    MarcaService
+    MarcaService,
+    
     ],
   bootstrap: [AppComponent]
 

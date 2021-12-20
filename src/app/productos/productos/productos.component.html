@@ -28,7 +28,7 @@
                         <div class="toolbox">
                             <div class="toolbox-left">
                                 <div class="toolbox-info">
-                                    Mostrando <span>{{productos.length}}</span> Productos
+                                    Mostrando <span>{{totalActivos}}</span> Productos
                                 </div>
                                 <!-- End .toolbox-info -->
                             </div>
@@ -38,7 +38,7 @@
                         <div class="" *ngFor="let producto of productos">
                             <!-- ESTE CONTENIDO -->
                             <!-- ESTO ES UN PRODUCTO -->
-                            <div class="product product-list">
+                            <div *ngIf="producto.estado==true" class="product product-list">
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
                                         <figure class="product-media">
